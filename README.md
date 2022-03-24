@@ -8,7 +8,7 @@
     ```
 1. Command to create cron job to check trove health every hour (run from project directory):
     ```
-    crontab -l | { cat; echo "0 * * * * $(which python) $(pwd)/trove_management.py"; } | crontab -
+    crontab -l | { cat; echo "30 * * * * $(which python) $(pwd)/trove_management.py"; } | crontab -
     ```
 1. Command to create cron job to notify trove's status every at at noon (run from project directory):
     ```

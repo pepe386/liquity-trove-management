@@ -153,6 +153,10 @@ def check_redemption_risk(eth_price, trove_icr, trove_list):
         logger.info(
             "check_redemption_risk: Your trove is at risk of getting redeemed. The troves ahead for redemption have a collateral of "
             + str(round(eth_sum / 1000000000000000000)) + " ETH")
+    else:
+        logger.info(
+            "check_redemption_risk: The troves ahead for redemption have a collateral of "
+            + str(round(eth_sum / 1000000000000000000)) + " ETH")
 
 
 def get_trove_local():
