@@ -1,6 +1,12 @@
 # Liquity Trove Management Script
 
-1. Requirements: See requirements.txt
+Sends pushover ( https://pushover.net/ ) notification when:
+- Trove's collateral ratio is outside of defined limits
+- Trove is at risk of redemption according to defined limits
+- Trove's debt or collateral are modified
+
+### Installation:
+1. Clone repository and install requirements: See requirements.txt
 1. Rename .env_template to .env and input required information
 1. Test command:
     ```
