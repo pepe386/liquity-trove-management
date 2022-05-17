@@ -16,7 +16,7 @@ Sends pushover ( https://pushover.net/ ) notification when:
     ```
     crontab -l | { cat; echo "30 * * * * $(which python) $(pwd)/trove_management.py"; } | crontab -
     ```
-1. Command to create cron job to notify trove's status every at at noon (run from project directory):
+1. Command to create cron job to notify trove's status every day at at noon (run from project directory):
     ```
     crontab -l | { cat; echo "0 12 * * * $(which python) $(pwd)/trove_management.py --force-notification"; } | crontab -
     ```
