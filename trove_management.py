@@ -159,12 +159,15 @@ def check_redemption_risk(eth_price, trove_icr, trove_list):
             + str(round(eth_sum / 1000000000000000000)) + " ETH")
 
 
-def get_trove_local():
+def get_trove_data(trove_list):
     trove_data = None
     try:
         with open(os.path.join(base_dir, ".trove"), 'rb') as fp:
             trove_data = pickle.load(fp)
     except FileNotFoundError:
+        for i, trove in enumerate(trove_list):
+            if trove[0] == trove_address:
+                trove_data = trove_list[i]
         with open(os.path.join(base_dir, ".trove"), 'wb') as fp:
             pickle.dump(trove_data, fp)
     return trove_data
@@ -176,7 +179,7 @@ def save_trove_local(trove_data):
 
 
 def check_debt_coll(trove_list):
-    trove_data = get_trove_local()
+    trove_data = get_trove_data(trove_list)
     for i, trove in enumerate(trove_list):
         if trove[0] == trove_address and trove_data != None:
             if trove_list[i][1] != trove_data[1] or trove_list[i][
